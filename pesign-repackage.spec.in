@@ -228,6 +228,9 @@ popd
 	echo "rm -f %buildroot/../SPECPARTS/rpm-debuginfo.specpart" >>repackage.spec
 %endif
 
+echo -------------------------------------------------------------------
+cat "repackage.spec"
+echo -------------------------------------------------------------------
 rpmbuild --define "%%buildroot %buildroot" --define "%%disturl $disturl" \
 	--define "%%_builddir $PWD" \
 	--define "%%_binaries_in_noarch_packages_terminate_build 0" \

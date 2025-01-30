@@ -157,6 +157,9 @@ fi
 /usr/lib/rpm/pesign/pesign-gen-repackage-spec \
 	--cert-subpackage=/usr/lib/rpm/kernel-cert-subpackage \
 	--directory="$buildroot" --output="$workdir" "${rpms[@]}"
+echo -------------------------------------------------------------------
+cat "$workdir/repackage.spec"
+echo -------------------------------------------------------------------
 echo "Running rpmbuild..."
 rpmbuild --define "buildroot $buildroot" --define "disturl $disturl" \
 	--define "_builddir $workdir" \
